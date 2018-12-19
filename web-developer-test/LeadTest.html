@@ -1,0 +1,34 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<title> Lead Records </title>
+<script type = "text/javascript">
+	function parseXML()
+	{
+		var xml = new XMLHttpRequest();
+		xml.open('GET','https://crm.zoho.com/crm/private/xml/Leads/getRecords?authtoken=4f86a4c7e8f1b2505ff9ba5ae58f3c53&scope=crmapi&fromIndex=1&toIndex=100',false);
+		xml.send();
+		var xmlData = xml.responseText;
+
+
+		table = document.createElement('table');
+
+		if(window.DOMParser)
+		{
+			var parser = new DOMParser();
+			xmlDoc = parser.parseFromString(xmlData,"text/xml");
+		}
+
+		document.body.append(table);
+
+		//TODO: Display the Actual Data on a Table.
+
+	}
+</script>
+</head>
+<body>
+	<h1>XML Records</h1>
+	<button onclick = "parseXML()">Read Leads</button>
+</body>
+</html>
