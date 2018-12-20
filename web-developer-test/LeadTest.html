@@ -7,8 +7,7 @@
 	function parseXML()
 	{
 		var xml = new XMLHttpRequest();
-		xml.open('GET','https://crm.zoho.com/crm/private/xml/Leads/getRecords?authtoken=4f86a4c7e8f1b2505ff9ba5ae58f3c53&scope=crmapi&fromIndex=1&toIndex=100',false);
-		xml.send();
+		
 		var xmlData = xml.responseText;
 
 
@@ -21,6 +20,9 @@
 		}
 
 		document.body.appendChild(table);
+		
+		xml.open('GET','https://crm.zoho.com/crm/private/xml/Leads/getRecords?authtoken=4f86a4c7e8f1b2505ff9ba5ae58f3c53&scope=crmapi&fromIndex=1&toIndex=100',false);
+		xml.send();
 
 		//TODO: Display the Actual Data on a Table.
 
